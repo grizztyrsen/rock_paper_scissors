@@ -1,31 +1,26 @@
 <script>
 
-    // global variables declared here
     let computerScore = 0;
     let humanScore = 0;
 
-    // Function for humanChoice
+    // Function: requests prompt so  the human can input a choice
     function getHumanChoice(){
-        //prompt for input and force string to be lowercase
         let humanChoice = prompt("Choose Rock, Paper, or Scissors").toLowerCase();
         return humanChoice;
     }
-    // Function for computerChoice
+    // Function: to randomize computer choice //
     function getComputerChoice(){
-        // declare variable as an array
         let computerChoice = ["rock", "paper", "scissors"];
-        // return variable after passing it through the Math function to randomize the selection of the options
         return computerChoice[Math.floor(Math.random() * 3)];
 
     }
 
-    // function to play a single round
+    
 
     function playRound(humanChoice, computerChoice){
-        // ifelse to determine round outcome and update score
-        if (humanChoice == computerChoice){ //determine tie
+        if (humanChoice == computerChoice){
             console.log("It's a tie");
-        } else if ( //determine human winner
+        } else if (
             (humanChoice == "rock" && computerChoice == "scissors") ||
             (humanChoice == "paper" && computerChoice == "rock" ) ||
             (humanChoice == "scissors" && computerChoice == "paper")
@@ -33,33 +28,30 @@
         ){
             humanScore++;
             console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
-        } else { //determine computer winner
+        } else {
             computerScore++;
             console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
         }
         
     }
 
-    // function to play the game with 5 rounds
     function playGame(){
-        // 5 round loop
-        for(i = 0; i < 5; i++){
-            // run functions for choices
+
+        for(round = 0; round < 5; round++){
             let humanSelection = getHumanChoice();
             let computerSelection = getComputerChoice();
-            // runs playRound function within the loop
-
             playRound(humanSelection, computerSelection);
 
         }
-        // if else to decide winner
-        if (humanScore > computerScore){ //human wins
+        
+    
+        if (humanScore > computerScore){
             console.log(`Winner! ${humanScore} | ${computerScore}`);
-        }else if (humanScore < computerScore){ //computer wins
+        }else if (humanScore < computerScore){
             console.log(`You lose! ${humanScore} | ${computerScore}`);
         }else
             console.log(`It's a tie! ${humanScore} | ${computerScore}`);       
     }
-    // Game begins
+
     playGame();
     </script>
