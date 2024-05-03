@@ -1,57 +1,13 @@
-<script>
+<html>
+    <head>
+    </head>
+    <body>
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+        <div class="content">
 
-    let computerScore = 0;
-    let humanScore = 0;
-
-    // Function: requests prompt so  the human can input a choice
-    function getHumanChoice(){
-        let humanChoice = prompt("Choose Rock, Paper, or Scissors").toLowerCase();
-        return humanChoice;
-    }
-    // Function: to randomize computer choice //
-    function getComputerChoice(){
-        let computerChoice = ["rock", "paper", "scissors"];
-        return computerChoice[Math.floor(Math.random() * 3)];
-
-    }
-
-    
-
-    function playRound(humanChoice, computerChoice){
-        if (humanChoice == computerChoice){
-            console.log("It's a tie");
-        } else if (
-            (humanChoice == "rock" && computerChoice == "scissors") ||
-            (humanChoice == "paper" && computerChoice == "rock" ) ||
-            (humanChoice == "scissors" && computerChoice == "paper")
-
-        ){
-            humanScore++;
-            console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
-        } else {
-            computerScore++;
-            console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
-        }
-        
-    }
-
-    function playGame(){
-
-        for(round = 0; round < 5; round++){
-            let humanSelection = getHumanChoice();
-            let computerSelection = getComputerChoice();
-            playRound(humanSelection, computerSelection);
-
-        }
-        
-    
-        if (humanScore > computerScore){
-            console.log(`Winner! ${humanScore} | ${computerScore}`);
-        }else if (humanScore < computerScore){
-            console.log(`You lose! ${humanScore} | ${computerScore}`);
-        }else
-            console.log(`It's a tie! ${humanScore} | ${computerScore}`);       
-    }
-
-    playGame();
-    </script>
+        </div>
+        <script src="java.js"></script>
+    </body>
+</html>
